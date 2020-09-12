@@ -56,7 +56,6 @@ function drawHilbertCurve(canvas, size, orientation, levelParam) {
     let blockSize = Math.floor(size / N);
     let offset = blockSize / 2;
 
-    console.log(orientation);
     initLookupCell(0, 0, 0, orientation, 0, orientation);
 
     let prev = globalCoords[0];
@@ -73,7 +72,6 @@ function drawHilbertCurve(canvas, size, orientation, levelParam) {
 
     for (let i = 0; i < N; i++) {
         ctx.fillStyle = 'white';
-        ctx.font = "14px serif";
 
         axis(i, 0, i, offset, offset / 5);
         axis(0, i, i, offset / 10, offset);
@@ -91,10 +89,12 @@ function drawHilbertCurve(canvas, size, orientation, levelParam) {
         ctx.arc(x * blockSize + offset, y * blockSize + offset + globalYOffset, r, 0, 2 * Math.PI);
         ctx.fill();
 
-        if (levelParam == 5) {
+        if (levelParam >= 5) {
             ctx.font = "14px serif";
-        } else {
+        } else if (levelParam == 4) {
             ctx.font = "20px serif";
+        } else {
+            ctx.font = "30px serif";
         }
         ctx.fillText(globalPos, x * blockSize + offset, y * blockSize + offset + globalYOffset);
         globalPos++;
