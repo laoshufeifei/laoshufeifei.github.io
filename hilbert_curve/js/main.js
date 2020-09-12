@@ -1,3 +1,5 @@
+// https://github.com/golang/geo/blob/master/s2/cellid.go
+
 let posToOrientation = [1, 0, 0, 3];
 let posToIJ = [
     [0, 1, 3, 2], // canonical order:    (0,0), (0,1), (1,1), (1,0)
