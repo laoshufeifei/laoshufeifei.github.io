@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hilbert Curve Demo</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="toolbox">
+            <div>
+                朝向:
+                <select class="select-box" id="selectOrientation" onchange="onSelectChange()">
+                    <option value="0">上</option>
+                    <option value="1">左</option>
+                    <option value="2">下</option>
+                    <option value="3">右</option>
+                </select>
+            </div>
+            <div>
+                level:
+                <select class="select-box"  id="selectLevel" onchange="onSelectChange()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" selected="selected">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        let canvas = document.getElementById('canvas');
+        onSelectChange()
+
+        function onSelectChange() {
+            let orientationSelect = document.getElementById("selectOrientation");
+            let levelSelect = document.getElementById("selectLevel");
+
+            let orientation = orientationSelect.selectedIndex;
+            let level = levelSelect.selectedIndex + 1;
+            drawHilbertCurve(canvas, 1000, orientation, level);
+        }
+    </script>
+</body>
+
+</html>
